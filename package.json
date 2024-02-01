@@ -1,0 +1,11 @@
+{
+  "name": "jobber-cli",
+  "version": "0.0.1",
+  "description": "A simple NodeJS script to automate the job applying process.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Damian Peiris.",
+  "license": "ISC"
+}
