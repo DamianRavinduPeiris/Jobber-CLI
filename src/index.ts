@@ -17,7 +17,7 @@ readline.question("Please enter a site : ", (site: string) => {
 
 
 async function scrapeAndApply(webSite: string,title:string){
-    const browser = await puppeteer.launch({ headless: false });
+const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
 
   
@@ -39,7 +39,8 @@ async function scrapeAndApply(webSite: string,title:string){
   await page.click(".LC20lb.MBeuO.DKV0Md");
 
   const email = await page.waitForSelector("a[href^=mailto]");
-  console.log(email);
+  console.log('Sending Application to : ',email)
+  
   await page.click("a[href^=mailto]");
 
 }
