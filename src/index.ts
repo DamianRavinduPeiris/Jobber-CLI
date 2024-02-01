@@ -26,7 +26,7 @@ const browser = await puppeteer.launch({ headless: false });
   await page.goto("https://www.google.com");
 
   
-  await page.waitForSelector(".gLFyf");
+  await page.waitForSelector("#prompt-textarea");
 
   
   
