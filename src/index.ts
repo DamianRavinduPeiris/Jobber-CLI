@@ -1,15 +1,17 @@
-const puppeteer = require("puppeteer");
-const readline = require("readline").createInterface({
+import puppeteer from "puppeteer";
+import readline from "readline";
+
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 console.log("Welcome - Jobber CLI V.0.1");
 
 console.log("Please enter the following details to get started!");
-readline.question("Please enter a site : ", (site: string) => {
-  readline.question("Please enter a job title : ", (title: string) => {
+rl.question("Please enter a site : ", (site: string) => {
+  rl.question("Please enter a job title : ", (title: string) => {
     scrapeAndApply(site,title);
-    readline.close();
+    rl.close();
   });
 });
 
