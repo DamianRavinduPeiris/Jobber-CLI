@@ -4,8 +4,15 @@
   "description": "A simple NodeJS script to automate the job applying process.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" :"nodemon"
   },
   "author": "Damian Peiris.",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  }
 }
