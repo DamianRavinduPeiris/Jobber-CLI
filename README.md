@@ -1,15 +1,15 @@
 # `💼 Jobber - CLI.`
 ### A simple AI based Node-JS script to automate the job applying process. 
 
-# Jobber-CLI: Local Setup Guide
+### How to run locally.
 
 
 
-## Prerequisites
+## Prerequisites.
 - [Node.js](https://nodejs.org/) installed on your machine.
 - Git clone of the Jobber-CLI repository.
 
-## Setup Instructions
+## Setup Instructions.
 
 1. **Clone the Repository:**
     ```bash
