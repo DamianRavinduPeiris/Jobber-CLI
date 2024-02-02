@@ -2,7 +2,7 @@ import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
 
-export default async function getBody(company:string,jobTitle:string){
+export default async function getBody(company:string,jobTitle:string,techStack:string,name:string){
     const options = {
       method: 'POST',
       url: process.env.URL,
@@ -15,10 +15,10 @@ export default async function getBody(company:string,jobTitle:string){
         messages: [
           {
             role: 'user',
-            content: `Generate an email body for ${jobTitle} at ${company} only using 100 words.`
+            content: `Generate an email body for ${jobTitle} at ${company}..My name is ${name} and here's my tech stack ${techStack} use only 100 words.`
           }
         ],
-        system_prompt: `Generate an email body for ${jobTitle} at ${company} only using 100 words.`,
+        system_prompt: `Generate an email body for ${jobTitle} at ${company}..My name is ${name} and here's my tech stack ${techStack} use only 100 words.`,
         temperature: 0.9,
         top_k: 5,
         top_p: 0.9,

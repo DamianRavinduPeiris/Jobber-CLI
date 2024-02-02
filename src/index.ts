@@ -11,12 +11,21 @@ console.log("Welcome - Jobber CLI V.0.1");
 console.log("Please enter the following details to get started!");
 rl.question("Please enter a site : ", (site: string) => {
   rl.question("Please enter a job title : ", (title: string) => {
-    scrapeAndApply(site, title);
-    rl.close();
+    rl.question("Please enter a tech stack : ", (techStack: string) => {
+      rl.question("Please enter your name : ", (name: string) => {
+        scrapeAndApply(site, title, techStack, name);
+        rl.close();
+      });
+    });
   });
 });
 
-async function scrapeAndApply(webSite: string, title: string) {
+async function scrapeAndApply(
+  webSite: string,
+  title: string,
+  techStack: string,
+  name: string
+) {
   try {
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
@@ -32,7 +41,7 @@ async function scrapeAndApply(webSite: string, title: string) {
     await page.waitForSelector(".LC20lb.MBeuO.DKV0Md");
     await page.click(".LC20lb.MBeuO.DKV0Md");
 
-    getBody(webSite, title)
+    getBody(webSite, title, techStack, name)
       .then(async (res: string) => {
         console.log("Application Body : ", res);
         const email = await page.waitForSelector("a[href^=mailto]");
@@ -42,7 +51,9 @@ async function scrapeAndApply(webSite: string, title: string) {
           const href = await (await email.getProperty("href")).jsonValue();
 
           // URL encode your subject and body
-          let subject = encodeURIComponent(`Applying for the position of ${title} in ${webSite}`);
+          let subject = encodeURIComponent(
+            `Applying for the position of ${title} in ${webSite}`
+          );
           let body = encodeURIComponent(res);
           // Append the subject and body to the mailto link
           let mailtoLink = `${href}?subject=${subject}&body=${body}`;
